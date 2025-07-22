@@ -113,11 +113,76 @@ body {
 }
 
 .bot-message {
-  background: rgba(50, 50, 50, 0.9);
-  color: #fff;
-  align-self: flex-start;
-  box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1);
+  background: linear-gradient(135deg, #2a2a2a, #3a3a3a);
+  color: #e0e0e0; /* softer than bright blue */
+  padding: 20px 24px;
+  margin: 14px 0;
+  border-radius: 18px 18px 18px 0px;
+  line-height: 1.8;
+  font-size: 16px;
+  max-width: 75%;
+  white-space: pre-wrap;
+  word-break: break-word;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.05);
 }
+.bot-message p {
+  margin: 10px 0;
+}
+.chat-header {
+  background: linear-gradient(90deg, #00d4ff, #0078ff);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+.chat-header i {
+  font-size: 24px;
+  color: #00d4ff;
+  margin-right: 10px;
+}
+.bot-message {
+  line-height: 1.8;
+}
+.bot-message:hover {
+  box-shadow: 0 0 20px rgba(0, 120, 255, 0.2);
+  transition: box-shadow 0.3s ease;
+}
+.chat-input input:focus {
+  background: rgba(70, 70, 70, 0.9);
+  border: 1px solid #0078ff;
+  box-shadow: 0 0 10px rgba(0, 120, 255, 0.4);
+}
+.chat-header {
+  background: linear-gradient(90deg, #00d4ff, #0078ff);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.bot-message {
+  animation: fadeInUp 0.3s ease forwards;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 
 /* Chat Input Area */
 .chat-input {
@@ -220,6 +285,50 @@ body {
     width: 95%;
   }
 }
+
+.bot-message {
+  align-self: flex-start;           /* Always on the left */
+  max-width: 75%;                   /* Same max width as user */
+  background: #2b2b2b;              /* Solid neutral dark bubble */
+  color: #e8e8e8;                   /* Soft light text */
+  padding: 16px 20px;               /* Comfortable padding */
+  margin: 12px 0;                   /* Clear space */
+  border-radius: 16px;              /* Smooth rounded corners */
+  line-height: 1.7;                 /* Good readability */
+  font-size: 16px;                  
+  white-space: pre-wrap;            /* Keeps line breaks */
+  word-break: break-word;           /* Breaks long words cleanly */
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);  /* Subtle depth */
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  animation: fadeInUp 0.3s ease forwards;
+}
+
+.bot-message:hover {
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+}
+
+.bot-message p {
+  margin: 10px 0;
+}
+
+.bot-message code {
+  background: #1e1e1e;
+  color: #00d4ff;
+  padding: 4px 6px;
+  border-radius: 4px;
+  font-family: monospace;
+}
+
+.bot-message pre {
+  background: #1e1e1e;
+  color: #00d4ff;
+  padding: 12px 16px;
+  border-radius: 8px;
+  overflow-x: auto;
+  font-family: monospace;
+  margin: 10px 0;
+}
+
 
 @media (max-width: 480px) {
   .sidebar {
