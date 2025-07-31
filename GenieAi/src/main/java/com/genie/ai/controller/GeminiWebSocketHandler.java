@@ -22,13 +22,14 @@ public class GeminiWebSocketHandler extends TextWebSocketHandler {
 
     @Value("${gemini.api.key}")
     private String apiKey;
+    
 
 
     @Autowired
     private ProductRepository productRepository;
 
     private final String GEMINI_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=";
-
+    
     @Override
     protected void handleTextMessage(WebSocketSession session, TextMessage message) throws IOException {
         String userInput = message.getPayload().trim().toLowerCase();
@@ -46,7 +47,7 @@ public class GeminiWebSocketHandler extends TextWebSocketHandler {
     }
 
     private boolean isEcommerceQuery(String userInput) {
-        String[] productCategories = {"ac", "refrigerator", "fridge", "washing machine", "tv", "television"};
+        String[] productCategories = {"ac", "refrigerator", "fridge", "washing machine", "tv", "television","Electronics","clothing","Accessories"};
 
         for (String category : productCategories) {
             if (userInput.contains(category) && (userInput.contains("under") || userInput.contains("below"))) {
@@ -59,13 +60,16 @@ public class GeminiWebSocketHandler extends TextWebSocketHandler {
     private String handleEcommerceQuery(String userInput) {
         try {
             // Categories to check
-            String[] productCategories = {"ac", "refrigerator", "fridge", "washing machine", "tv", "television"};
+            String[] productCategories = {"ac", "refrigerator", "fridge", "washing machine", "tv", "television","clothing","Accessories","Electronics"};
             String detectedCategory = null;
 
             for (String category : productCategories) {
                 if (userInput.contains(category)) {
                     if (category.equals("fridge")) detectedCategory = "Refrigerator";
                     else if (category.equals("tv") || category.equals("television")) detectedCategory = "Television";
+                    else if(category.equals("clothing")) detectedCategory = "clothing";
+                    else if(category.equals("Electronics")) detectedCategory = "Electronics";
+                    else if(category.equals("Accessories")) detectedCategory = "Accessories";
                     else detectedCategory = capitalize(category);
                     break;
                 }
