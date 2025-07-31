@@ -173,3 +173,4 @@ Spring-AI/
 - Frontend makes AJAX/Fetch API calls to Spring Boot REST endpoints
 - Check browser console and Spring Boot logs for debugging
 - Default Spring Boot API base path: `http://localhost:8080/api/`
+
